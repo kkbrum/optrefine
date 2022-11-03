@@ -1,0 +1,51 @@
+#' Right Heart Catheterization Data
+#'
+#' The data in the example are from Frank Harrell's \code{\link[Hmisc]{getHdata}}.
+#' The data there are very similar to the
+#' data in Connors et al. (1996), but do not exactly reproduce analyses from
+#' that article. So, we employ the version of that analysis in the
+#' documentation for Ruoqi Yu's \code{\link[RBestMatch]{rbestmatch}},
+#' which attempts to be close to the analysis in Connors et al.
+#' In Yu's version, the propensity score (her
+#' `pr`) is built using 76 covariates, and the focus of attention is on
+#' 26 "priority" covariates (her `X`) and the propensity score
+#' that were emphasized in the Connors et al. article, including those in that
+#' article's Table 3.
+#'
+#' @format Matrix with 5,735 rows and 28 columns:
+#' \describe{
+#'   \item{aps1}{APACHE score}
+#'   \item{surv2md1}{Support model estimate of the prob. of surviving 2 months}
+#'   \item{age}{Age}
+#'   \item{NumComorbid}{Number of comorbidities}
+#'   \item{adld3p_impute}{ADL with missing data imputed}
+#'   \item{adld3p_na}{ADL missing}
+#'   \item{das2d3pc}{DASI (Duke Activity Status Index)}
+#'   \item{temp1}{Temperature}
+#'   \item{hrt1}{Heart rate}
+#'   \item{meanbp1}{Mean blood pressure}
+#'   \item{resp1}{Respiratory rate}
+#'   \item{wblc1}{WBC}
+#'   \item{pafi1}{PaO2/FIO2 ratio}
+#'   \item{paco21}{PaCo2}
+#'   \item{ph1}{PH}
+#'   \item{crea1}{Creatinine}
+#'   \item{alb1}{Albumin}
+#'   \item{scoma1}{Glasgow Coma Score}
+#'   \item{cat1_copd}{Primary disease category COPD}
+#'   \item{cat1_mosfsep}{Primary disease category MOSF w sepsis}
+#'   \item{cat1_mosfmal}{Primary disease category MOSF w malignancy}
+#'   \item{cat1_chf}{Primary disease category CHF}
+#'   \item{cat1_coma}{Primary disease category coma}
+#'   \item{cat1_cirr}{Primary disease category cirrhosis}
+#'   \item{cat1_lung}{Primary disease category lung cancer}
+#'   \item{cat1_colon}{Primary disease category colon cancer}
+#'   \item{pr}{Propensity score using 76 covariates}
+#'   \item{z}{Treatment indicator}
+#' }
+#'
+#' @references Connors et al. (1996): The effectiveness of RHC in the initial
+#' care of critically ill patients. J American Medical Association 276:889-897.
+#' @references \url{https://hbiostat.org/data}.
+
+"rhc_X"
