@@ -42,7 +42,7 @@ jobs:
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           dependencies: '"hard"'
-          extra-packages: any::rcmdcheck, covr, testthat
+          extra-packages: any::rcmdcheck, any::covr, any::testthat
           needs: check
 
       - uses: r-lib/actions/check-r-package@v2
