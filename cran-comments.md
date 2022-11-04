@@ -1,6 +1,12 @@
 ## Test environments
 * local macOS install, R 4.2.1
 * win-builder (devel and release)
+* github actions:
+          - {os: macos-latest,   r: 'release'}
+          - {os: windows-latest, r: 'release'}
+          - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
+          - {os: ubuntu-latest,   r: 'release'}
+          - {os: ubuntu-latest,   r: 'oldrel-1'}
 
 ## R CMD check results
 There were no ERRORs or WARNINGs.
