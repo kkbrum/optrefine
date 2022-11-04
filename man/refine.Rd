@@ -79,17 +79,17 @@ Note that setting a seed before using this function will ensure that the results
 on the same machine, but results may vary across machines due to how the optimization solvers work.
 }
 \examples{
-# Choose 1000 patients and 10 covariates to work with for the example
+# Choose 500 patients and 5 covariates to work with for the example
 set.seed(15)
-samp <- sample(1:nrow(rhc_X), 1000)
-cov_samp <- sample(1:26, 10)
+samp <- sample(1:nrow(rhc_X), 500)
+cov_samp <- sample(1:26, 5)
 
 # Let it create propensity score strata for you and then refine them
 ref <- refine(X = rhc_X[samp, cov_samp], z = rhc_X[samp, "z"])
 
 # Or, specify your own initial strata
 ps <- prop_strat(z = rhc_X[samp, "z"],
-                 X = rhc_X[samp, cov_samp], nstrata = 5)
+                 X = rhc_X[samp, cov_samp], nstrata = 3)
 ref <- refine(X = ps$X, z = ps$z, strata = ps$base_strata)
 
 # Can just input the output of prop_strat() directly

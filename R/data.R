@@ -46,6 +46,6 @@
 #'
 #' @references Connors et al. (1996): The effectiveness of RHC in the initial
 #' care of critically ill patients. J American Medical Association 276:889-897.
-#' @references \url{https://hbiostat.org/data}.
+#' @references \url{https://hbiostat.org/data/}.
 
 "rhc_X"

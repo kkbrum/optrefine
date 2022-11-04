@@ -4,7 +4,13 @@ Version: 1.0.0
 Authors@R: 
     person("Katherine", "Brumberg", , "kbrum@wharton.upenn.edu", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-5193-6250"))
-Description: Splits initial strata into refined strata that optimize covariate balance. For more information, please email the author for a copy of the accompanying manuscript.
+Description: Splits initial strata into refined strata that optimize covariate balance. 
+    For more information, please email the author for a copy of the accompanying manuscript. 
+    To solve the linear program, the 'Gurobi' commercial optimization software 
+    is recommended, but not required. The 'gurobi' R package can be installed following the instructions 
+    at <https://www.gurobi.com/documentation/9.1/refman/ins_the_r_package.html>.
+URL: https://github.com/kkbrum/optrefine, https://kkbrum.github.io/optrefine/, https://www.gurobi.com/documentation/9.1/refman/ins_the_r_package.html
+BugReports: https://github.com/kkbrum/optrefine/issues
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true

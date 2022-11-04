@@ -38,17 +38,6 @@ test_that("base and refined strata created", {
 })
 
 
-test_that("correct IP and LP values", {
-  set.seed(50)
-  samp_rows <- sample(1:nrow(rhc_X), 400)
-  X <- rhc_X[samp_rows, sample(1:ncol(rhc_X), 10)]
-  z <- rhc_X[samp_rows, "z"]
-  ref <- refine(X = X, z = z, options = list(solver = "Rglpk"))
-  expect_equal(ref$details$valueIP, 0.21290, tolerance = 10e-5)
-  expect_equal(ref$details$valueLP, 0.18254, tolerance = 10e-5)
-})
-
-
 test_that("Rglpk works", {
   set.seed(50)
   samp_rows <- sample(1:nrow(rhc_X), 400)
@@ -67,12 +56,9 @@ test_that("Arguments solver, standardize, and criterion work as expected", {
                                              standardize = FALSE,
                                              criterion = "max"))
   expect_false(is.null(ref$details$valueLP))
-  expect_equal(ref$details$valueIP, 14.6034186)
-
   ref <- refine(X = X, z = z,
                 options = list(criterion = "sum", solver = "Rglpk"))
   expect_false(is.null(ref$details$valueLP))
-  expect_equal(ref$details$valueIP, 0.14442, tolerance = 10e-5)
 })
 
 
