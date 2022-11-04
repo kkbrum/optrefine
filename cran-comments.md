@@ -1,7 +1,7 @@
 ## Test environments
-* local macOS install, R 4.2.1
-* win-builder (devel and release)
-* github actions:
+- local macOS install, R 4.2.1
+- win-builder (devel and release)
+- github actions:
           - {os: macos-latest,   r: 'release'}
           - {os: windows-latest, r: 'release'}
           - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
