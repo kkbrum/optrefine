@@ -3,9 +3,25 @@
 * win-builder (devel and release)
 
 ## R CMD check results
-There were no ERRORs, WARNINGs, or NOTEs.
+There were no ERRORs or WARNINGs.
 
+There were 2 NOTEs:
 
+* checking CRAN incoming feasibility ... NOTE
+Maintainer: 'Katherine Brumberg <kbrum@wharton.upenn.edu>'
+
+New submission
+
+Possibly misspelled words in DESCRIPTION:
+  covariate (7:70)
+
+Suggests or Enhances not in mainstream repositories:
+  gurobi
+    
+* checking package dependencies ... NOTE
+Package suggested but not available for checking: 'gurobi'
+
+'gurobi' is a commercial optimization software, and is not required for the use of my package, although it is recommended. Instructions for installation are included in the description.
 
 
 
