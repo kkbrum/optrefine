@@ -20,10 +20,10 @@ Prints tables of numbers of control and treated units without strata and in init
 Also displays average and maximum standardized mean difference for each stratification.
 }
 \examples{
-# Choose 1000 patients and 10 covariates to work with for the example
+# Choose 750 patients and 5 covariates to work with for the example
 set.seed(21)
-samp <- sample(1:nrow(rhc_X), 1000)
-cov_samp <- sample(1:26, 10)
+samp <- sample(1:nrow(rhc_X), 750)
+cov_samp <- sample(1:26, 5)
 ref <- refine(X = rhc_X[samp, cov_samp], z = rhc_X[samp, "z"])
 print(ref)
 }

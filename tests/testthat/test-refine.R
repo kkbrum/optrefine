@@ -187,7 +187,7 @@ test_that("LP combo obj value calculated correctly", {
   set.seed(75)
   samp_rows <- sample(1:nrow(rhc_X), 200)
   ncov <- 5
-  nstrata <- 3
+  nstrata <- 2
   wMax <- 4
   X <- rhc_X[samp_rows, sample(1:ncol(rhc_X), ncov)]
   z <- rhc_X[samp_rows, "z"]

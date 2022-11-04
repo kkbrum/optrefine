@@ -41,11 +41,11 @@ Matrix with 5,735 rows and 28 columns:
 rhc_X
 }
 \description{
-The data in the example are from Frank Harrell's \code{\link[Hmisc]{getHdata}}.
+The data in the example are from Frank Harrell's \code{Hmisc} package.
 The data there are very similar to the
 data in Connors et al. (1996), but do not exactly reproduce analyses from
 that article. So, we employ the version of that analysis in the
-documentation for Ruoqi Yu's \code{\link[RBestMatch]{rbestmatch}},
+documentation for Ruoqi Yu's \code{RBestMatch} package,
 which attempts to be close to the analysis in Connors et al.
 In Yu's version, the propensity score (her
 \code{pr}) is built using 76 covariates, and the focus of attention is on
