@@ -4,3 +4,5 @@
 ^LICENSE\.md$
 ^cran-comments.md
 ^\.github$
+^README\.Rmd$
+^codecov\.yml$
