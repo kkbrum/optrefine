@@ -71,10 +71,10 @@
 #' @export
 #'
 #' @examples
-#' # Choose 500 patients and 5 covariates to work with for the example
+#' # Choose 400 patients and 4 covariates to work with for the example
 #' set.seed(15)
-#' samp <- sample(1:nrow(rhc_X), 500)
-#' cov_samp <- sample(1:26, 5)
+#' samp <- sample(1:nrow(rhc_X), 400)
+#' cov_samp <- sample(1:26, 4)
 #'
 #' # Let it create propensity score strata for you and then refine them
 #' ref <- refine(X = rhc_X[samp, cov_samp], z = rhc_X[samp, "z"])

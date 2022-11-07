@@ -23,10 +23,10 @@
 #' @import ggplot2
 #'
 #' @examples
-#' # Choose 1000 patients and 8 covariates to work with for the example
+#' # Choose 800 patients and 5 covariates to work with for the example
 #' set.seed(28)
-#' samp <- sample(1:nrow(rhc_X), 1000)
-#' cov_samp <- sample(1:26, 8)
+#' samp <- sample(1:nrow(rhc_X), 800)
+#' cov_samp <- sample(1:26, 5)
 #' ref <- refine(X = rhc_X[samp, cov_samp], z = rhc_X[samp, "z"])
 #' plot(ref)
 #'

@@ -1,5 +1,6 @@
 ## Resubmission
 This is a resubmission. In this version I have:
+* Made the examples for `refine()` and `plot.strat()` shorter to take less time
 * Removed extra spaces from the package description
 * Added documentation for the value returned by `plot.strat()` 
 
