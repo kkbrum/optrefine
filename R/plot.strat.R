@@ -15,6 +15,10 @@
 #' The corresponding label for any stratification that is not to be plotted must
 #' still be provided but will be ignored and
 #' can be set to `NA`
+#'
+#' @return Either a ggplot object for the Love plot of standardized mean differences or
+#' a list of such ggplot objects if `by_strata` is `TRUE`
+#'
 #' @export
 #' @import ggplot2
 #'

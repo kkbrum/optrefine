@@ -35,6 +35,10 @@ can be set to \code{NA}}
 
 \item{...}{further arguments passed to or from other methods}
 }
+\value{
+Either a ggplot object for the Love plot of standardized mean differences or
+a list of such ggplot objects if \code{by_strata} is \code{TRUE}
+}
 \description{
 Plots the standardized mean differences for \code{strat} objects in the format of Love (2002).
 }
