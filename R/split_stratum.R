@@ -179,10 +179,10 @@ split_stratum <- function(z, X, strata, ist, nc, nt,
   rand_t_prop <- sapply(1:S, function(x) {(sum(st_mat[x, z == 1]) - sum(st_mat[x, z == 1] == 1)) / sum(st_mat[x, z == 1])})
 
   # Randomized rounding
-  n_rr <- 10
-  for (rr_i in 1:n_rr) {
-    st_mat <- round(pr, 5)
-    if(!integer) {
+  if(!integer) {
+    n_rr <- 10
+    for (rr_i in 1:n_rr) {
+      st_mat <- round(pr, 5)
       if (S > 2) {
         # (sample sizes only correct in expectation since we draw independently for each unit)
         for (i in 1:I) {
@@ -220,44 +220,50 @@ split_stratum <- function(z, X, strata, ist, nc, nt,
           st_mat[2, ] <- 1 - st_mat[1, ]
         }
       }
+      st <- which(st_mat == 1, arr.ind = TRUE)[, 1]
+      Sadj <- length(unique(st))
+
+      # Evaluate covariate balance of best integer solution
+      eval <- NULL
+      for (s in 1:S) {
+        if (sum(z == 1 & st == s) > 0) {
+          tmean <- colMeans(X[z == 1 & st == s, , drop = FALSE])
+        } else {
+          tmean <- rep(NA, J)
+        }
+        if (sum(z == 0 & st == s) > 0) {
+          cmean <- colMeans(X[z == 0 & st == s, , drop = FALSE])
+        } else {
+          cmean <- rep(NA, J)
+        }
+        eval <- rbind(eval, tmean, cmean)
+      }
+      rownames(eval)<-c(paste0(c("T", "C"), rep(1:S, each = 2)))
+
+      epsIP <- matrix(NA,2*S+1,J)
+      for (s in 1:S) {
+        epsIP[(2*(s-1)+1), ] <- pmax(0, eval[2*s, ] - eval[2*s-1, ])
+        epsIP[2*s, ] <- pmax(0, eval[2*s-1, ] - eval[2*s, ])
+      }
+      epsIP[(2*S + 1),]<-apply(epsIP[1:(2*S),, drop = FALSE], 2, max, na.rm = TRUE)
+      rownames(epsIP)<-c(paste(c("Pos eps","Neg eps"), rep(1:S, each = 2)), "max")
+      if (!is.null(colnames(X))) colnames(epsIP)<-colnames(X)
+      epsIP_nona <- epsIP
+      epsIP_nona[is.na(epsIP)] <- 0
+
+      valueIP <- (wEach * sum(epsIP_nona[1:(2*S),]) + wMax * max(epsIP_nona[2*S + 1, ], na.rm = TRUE)) / (wEach * J * Sadj + wMax)
+      if (valueIP < best_valueIP) {
+        best_valueIP <- valueIP
+        best_selection <- st
+      }
     }
+  } else {
+    best_valueIP <- v
+    v <- NA
     st <- which(st_mat == 1, arr.ind = TRUE)[, 1]
-    Sadj <- length(unique(st))
-
-    # Evaluate covariate balance of best integer solution
-    eval <- NULL
-    for (s in 1:S) {
-      if (sum(z == 1 & st == s) > 0) {
-        tmean <- colMeans(X[z == 1 & st == s, , drop = FALSE])
-      } else {
-        tmean <- rep(NA, J)
-      }
-      if (sum(z == 0 & st == s) > 0) {
-        cmean <- colMeans(X[z == 0 & st == s, , drop = FALSE])
-      } else {
-        cmean <- rep(NA, J)
-      }
-      eval <- rbind(eval, tmean, cmean)
-    }
-    rownames(eval)<-c(paste0(c("T", "C"), rep(1:S, each = 2)))
-
-    epsIP <- matrix(NA,2*S+1,J)
-    for (s in 1:S) {
-      epsIP[(2*(s-1)+1), ] <- pmax(0, eval[2*s, ] - eval[2*s-1, ])
-      epsIP[2*s, ] <- pmax(0, eval[2*s-1, ] - eval[2*s, ])
-    }
-    epsIP[(2*S + 1),]<-apply(epsIP[1:(2*S),, drop = FALSE], 2, max, na.rm = TRUE)
-    rownames(epsIP)<-c(paste(c("Pos eps","Neg eps"), rep(1:S, each = 2)), "max")
-    if (!is.null(colnames(X))) colnames(epsIP)<-colnames(X)
-    epsIP_nona <- epsIP
-    epsIP_nona[is.na(epsIP)] <- 0
-
-    valueIP <- (wEach * sum(epsIP_nona[1:(2*S),]) + wMax * max(epsIP_nona[2*S + 1, ], na.rm = TRUE)) / (wEach * J * Sadj + wMax)
-    if (valueIP < best_valueIP) {
-      best_valueIP <- valueIP
-      best_selection <- st
-    }
+    best_selection <- st
   }
+
 
   return(list(valueIP = best_valueIP, valueLP = v, n_smds = wEach * J * Sadj + wMax, n_fracs = n_fracs,
               rand_c_prop = rand_c_prop, rand_t_prop = rand_t_prop, pr = pr, selection = best_selection))

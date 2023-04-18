@@ -74,7 +74,7 @@ test_that("Arguments integer, wMax, and ist work as expected", {
                                wMax = 10,
                                ist = 2))
   expect_false(is.null(ref$details$valueLP))
-  expect_equal(ref$details$valueLP, ref$details$valueIP, tolerance = 10e-6)
+  expect_true(is.na(ref$details$valueLP))
   expect_equal(ref$details$valueIP, 0.249396391, tolerance = 10e-6)
 })
 

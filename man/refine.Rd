@@ -43,7 +43,6 @@ with rows corresponding to the strata and columns to the units}
 \item{wMax: }{weight placed on the maximum standardized mean difference in the optimization
 (see the \code{details} about the \code{options} for the optimization)}
 \item{X_std: }{standardized version of \code{X}}
-\item{threads: }{how many threads you'd like the optimization to use if using the "gurobi" solver. Uses all available threads by default}
 }
 }
 }
@@ -73,6 +72,9 @@ and is not recommended except for tiny data sets}
 Only used if criterion is set to "combo". Default is 5}
 \item{ist: }{which strata to split. Should be a level from the specified \code{strata} or
 a vector of multiple levels. Default is to split all strata}
+\item{minsplit: }{The minimum number of treated and control units to allow in a refined stratum.
+Default is 10}
+\item{threads: }{How many threads you'd like the optimization to use if using the "gurobi" solver. Uses all available threads by default}
 }
 
 Note that setting a seed before using this function will ensure that the results are reproducible

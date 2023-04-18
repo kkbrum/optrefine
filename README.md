@@ -16,6 +16,13 @@ covariate balance.
 
 ## Installation
 
+You can install the release version of optrefine from
+[CRAN](https://cran.r-project.org/) with:
+
+``` r
+install.packages("optrefine")
+```
+
 You can install the development version of optrefine from
 [GitHub](https://github.com/) with:
 

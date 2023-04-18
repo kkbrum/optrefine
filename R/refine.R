@@ -37,6 +37,9 @@
 #' Only used if criterion is set to "combo". Default is 5}
 #'     \item{ist: }{which strata to split. Should be a level from the specified `strata` or
 #' a vector of multiple levels. Default is to split all strata}
+#'     \item{minsplit: }{The minimum number of treated and control units to allow in a refined stratum.
+#' Default is 10}
+#'     \item{threads: }{How many threads you'd like the optimization to use if using the "gurobi" solver. Uses all available threads by default}
 #' }
 #'
 #' Note that setting a seed before using this function will ensure that the results are reproducible
@@ -62,7 +65,6 @@
 #'         \item{wMax: }{weight placed on the maximum standardized mean difference in the optimization
 #'         (see the `details` about the `options` for the optimization)}
 #'         \item{X_std: }{standardized version of `X`}
-#'         \item{threads: }{how many threads you'd like the optimization to use if using the "gurobi" solver. Uses all available threads by default}
 #'         }
 #'     }
 #' }
@@ -93,7 +95,8 @@ refine <- function(object = NULL, z = NULL, X = NULL, strata = NULL,
                    options = list()) {
 
   stopifnot(is.list(options))
-  stopifnot(all(names(options) %in% c("solver", "standardize", "criterion", "integer", "wMax", "ist", "threads")))
+  stopifnot(all(names(options) %in% c("solver", "standardize", "criterion",
+                                      "integer", "wMax", "ist", "threads", "minsplit")))
   if (is.null(options$solver)) {
     if(requireNamespace("gurobi", quietly = TRUE)) {
       solver <- "gurobi"
@@ -109,12 +112,12 @@ refine <- function(object = NULL, z = NULL, X = NULL, strata = NULL,
   if (is.null(options$wMax)) {wMax <- 5} else {wMax <- options$wMax}
   if (is.null(options$ist)) {ist <- NULL} else {ist <- options$ist}
   if (is.null(options$threads)) {threads <- NULL} else {threads <- options$threads}
+  if (is.null(options$minsplit)) {min_split <- 10} else {min_split <- options$minsplit}
 
   stopifnot(solver %in% c("Rglpk", "gurobi"))
   stopifnot(is.logical(standardize))
   stopifnot(is.logical(integer))
   stopifnot(criterion %in% c("combo", "max", "sum"))
-  stopifnot(is.null(ist) || all(ist %in% levels(object$base_strata)))
   stopifnot(!is.null(object) || (!is.null(z) && !is.null(X)))
 
   if (is.null(object)) {
@@ -128,6 +131,7 @@ refine <- function(object = NULL, z = NULL, X = NULL, strata = NULL,
   } else {
     X <- object$X
   }
+  stopifnot(is.null(ist) || all(ist %in% levels(object$base_strata)))
 
   # Only split the strata indicated
   if (is.null(ist)) {
@@ -150,7 +154,6 @@ refine <- function(object = NULL, z = NULL, X = NULL, strata = NULL,
 
   s <- rep(NA,length(object$z))
 
-  min_split <- 10
   if (criterion == "sum") {
     wMax <- 0
     wEach <- 1
