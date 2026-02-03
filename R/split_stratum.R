@@ -243,7 +243,9 @@ split_stratum <- function(z, X, strata, ist, nc, nt,
         epsIP[(2*(s-1)+1), ] <- pmax(0, eval[2*s, ] - eval[2*s-1, ])
         epsIP[2*s, ] <- pmax(0, eval[2*s-1, ] - eval[2*s, ])
       }
-      epsIP[(2*S + 1),]<-apply(epsIP[1:(2*S),, drop = FALSE], 2, max, na.rm = TRUE)
+      epsIP[(2*S + 1),]<-apply(epsIP[1:(2*S),, drop = FALSE], 2, function(x) {
+        if (all(is.na(x))) return(NA) else return(max(x, na.rm = TRUE))
+      })
       rownames(epsIP)<-c(paste(c("Pos eps","Neg eps"), rep(1:S, each = 2)), "max")
       if (!is.null(colnames(X))) colnames(epsIP)<-colnames(X)
       epsIP_nona <- epsIP
@@ -259,9 +261,15 @@ split_stratum <- function(z, X, strata, ist, nc, nt,
     best_valueIP <- v
     v <- NA
     st <- which(st_mat == 1, arr.ind = TRUE)[, 1]
+    if (length(st) == 0) {
+      stop("Error in split_stratum(): No valid assignment found in integer programming solution.", call. = FALSE)
+    }
     best_selection <- st
   }
 
+  if (is.null(best_selection) || length(best_selection) == 0) {
+    stop("Error in split_stratum(): No valid selection found after randomized rounding.", call. = FALSE)
+  }
 
   return(list(valueIP = best_valueIP, valueLP = v, n_smds = wEach * J * Sadj + wMax, n_fracs = n_fracs,
               rand_c_prop = rand_c_prop, rand_t_prop = rand_t_prop, pr = pr, selection = best_selection))

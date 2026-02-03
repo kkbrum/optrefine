@@ -191,6 +191,10 @@ refine <- function(object = NULL, z = NULL, X = NULL, strata = NULL,
                      wMax = wMax, wEach = wEach, solver = solver,
                      integer = integer, min_split = min_split, threads = threads)
     si <- best$selection
+    if (is.null(si) || length(si) == 0) {
+      stop(paste0("Error in refine(): No valid split found for stratum ", u[i], 
+                  ". Try reducing min_split or using a different initial stratification."), call. = FALSE)
+    }
     s[who]<-si
     objLP <- (n_obj * objLP  + best$n_smds * best$valuesLP[best$besti, best$bestj]) / (n_obj + best$n_smds)
     objIP <- (n_obj *objIP + best$n_smds * best$valuesIP[best$besti, best$bestj]) / (n_obj + best$n_smds)

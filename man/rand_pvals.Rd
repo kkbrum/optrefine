@@ -92,9 +92,9 @@ Default is \code{TRUE} if a base stratification is provided}
 }
 }
 \examples{
-# Choose 500 patients and 5 covariates to work with for the example
+# Choose 800 patients and 5 covariates to work with for the example
 set.seed(15)
-samp <- sample(1:nrow(rhc_X), 500)
+samp <- sample(1:nrow(rhc_X), 800)
 cov_samp <- sample(1:26, 5)
 
 # Let it create propensity score strata for you and then refine them

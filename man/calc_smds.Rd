@@ -40,9 +40,9 @@ a matrix of standardized mean differences for each stratum (row) and covariate (
 Summarizes initial and/or refined strata in terms of standardized mean differences (SMDs).
 }
 \examples{
-# Choose 500 patients and 5 covariates to work with for the example
+# Choose 800 patients and 5 covariates to work with for the example
 set.seed(15)
-samp <- sample(1:nrow(rhc_X), 500)
+samp <- sample(1:nrow(rhc_X), 800)
 cov_samp <- sample(1:26, 5)
 
 # Let it create propensity score strata for you and then refine them

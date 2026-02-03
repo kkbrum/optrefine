@@ -17,16 +17,17 @@ I am unable to fix the NOTE about 'gurobi' not being available for checking sinc
 ## R CMD check results
 There were no ERRORs or WARNINGs.
 
-There were 2 NOTEs:
+There was 1 NOTE:
 
- * checking CRAN incoming feasibility ... NOTE
 Maintainer: 'Katherine Brumberg <kbrum@umich.edu>'
+
+New maintainer:
+  Katherine Brumberg <kbrum@umich.edu>
+Old maintainer(s):
+  Katherine Brumberg <kbrum@wharton.upenn.edu>
 
 Suggests or Enhances not in mainstream repositories:
   gurobi
-    
-* checking package dependencies ... NOTE
-Package suggested but not available for checking: 'gurobi'
 
 'gurobi' is a commercial optimization software, and is not required for the use of my package, although it is recommended. Instructions for installation are included in the description. 
 
