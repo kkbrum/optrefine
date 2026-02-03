@@ -1,14 +1,11 @@
 ## Patch
-This is a patch to update my email address and paper details. Nothing else has changed.
-
-I am unable to fix the NOTE about 'gurobi' not being available for checking since it is a commercial software and the R package must be downloaded from their website. However, it is only suggested and the package works without it. Installation instructions for the R package 'gurobi' are in the description of the package.
+This is a patch to update my email address and paper details. All other changes are just to get all tests/checks running smoothly.
 
 ## Test environments
 - local macOS install, R 4.5.2
 - macOS builder
 - win-builder (devel and release)
 - github actions:
-    - {os: macos-latest,   r: 'release'}
     - {os: windows-latest, r: 'release'}
     - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
     - {os: ubuntu-latest,   r: 'release'}
