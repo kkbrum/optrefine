@@ -39,6 +39,11 @@ jobs:
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
 
+      - name: Clean up any corrupted lockfiles
+        run: |
+          rm -f .github/pkg.lock
+          mkdir -p .github
+
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
           dependencies: '"hard"'

@@ -1,8 +1,8 @@
 citHeader("To cite optrefine in publications use:")
 
-citEntry(entry = "Manual",
+bibentry(bibtype = "Manual",
          title = "optrefine: Optimally Refine Strata",
-         author = personList(
+         author = c(
            person("Katherine", "Brumberg", 
                   email = "kbrum@umich.edu",
                   role = c("aut", "cre"),
@@ -22,9 +22,9 @@ citEntry(entry = "Manual",
 
 citHeader("To cite the accompanying paper, please use:")
 
-citEntry(entry = "Article",
+bibentry(bibtype = "Article",
          title = "Optimal refinement of strata to balance covariates",
-         author = personList(
+         author = c(
            person("Katherine", "Brumberg", role = "aut",
                   comment = c(ORCID = "0000-0002-5193-6250")),
            person("Dylan S", "Small", role = "aut"),
