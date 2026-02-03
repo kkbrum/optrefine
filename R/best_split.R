@@ -14,7 +14,6 @@
 #' from `nc_list` and `nt_list` that violate this are skipped
 #'
 #' @return A list containing the following elements:
-#' \itemize{
 #'     \item{valuesIP, valuesLP: }{matrices containing integer and linear programming
 #' scaled objective values for each sample size tried, with rows corresponding to the
 #' elements of `nc_list` and columns corresponding to the elements of `nt_list`}
@@ -28,7 +27,6 @@
 #'     with rows corresponding to the strata and columns to the units}
 #'     \item{selection: }{vector of selected strata for each unit
 #'     in the initial stratum to be split for the best split}
-#' }
 #'
 #' @export
 #' @examples

@@ -50,7 +50,7 @@ See \code{\link{rand_pvals}()} for more details about the methods used.
 }
 \details{
 The \code{options} list argument can contain any of the following elements:
-\itemize{
+\describe{
 \item{nrand: }{how many times to randomize the treatment assignment when forming the null distribution.
 Default is 10000}
 \item{criterion: }{which optimization criterion to use when calculating the objective value.
@@ -61,7 +61,7 @@ or a combination of the maximum and the sum. The default is "combo"}
 Only used if criterion is set to "combo". Default is 5}
 \item{incl_base: }{whether to include columns for the initial stratification in the table.
 Default is \code{TRUE} if a base stratification is provided}
-\item{rand_pvals: if already calculated, the returned list of information from \code{\link{rand_pvals}()}.
+\item{rand_pvals: }{if already calculated, the returned list of information from \code{\link{rand_pvals}()}.
 If \code{NULL}, this will be calculated}
 }
 }

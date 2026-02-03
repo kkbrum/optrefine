@@ -52,7 +52,6 @@ Default is \code{FALSE}. It is not recommended to set this to \code{TRUE} as the
 }
 \value{
 A list containing the following elements:
-\itemize{
 \item{valueIP, valueLP: }{integer and linear programming scaled objective values}
 \item{n_smds: }{number of standardized mean differences contributing to the objective values
 (multiply the scaled objective values by this number to get the true objective values)}
@@ -61,7 +60,6 @@ A list containing the following elements:
 that were selected with randomness}
 \item{pr: }{linear programming solution, with rows corresponding to the strata and columns to the units}
 \item{selection: }{vector of selected strata for each unit in the initial stratum to be split}
-}
 }
 \description{
 Split one stratum into multiple with specified sample sizes.

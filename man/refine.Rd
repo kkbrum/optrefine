@@ -25,13 +25,12 @@ propensity score is also added to the X matrix as an extra covariate}
 }
 \value{
 Object of class "strat", which is a list object with the following components:
-\itemize{
 \item{z: }{treatment vector}
 \item{X: }{covariate matrix}
 \item{base_strata: }{initial stratification}
 \item{refined_strata: }{refined_stratification}
 \item{details: }{various details about the optimization that can be ignored in practice, but may be interesting:
-\itemize{
+\describe{
 \item{valueIP, valueLP: }{integer (determined via randomized rounding, unless \code{integer} option set to true)
 and linear programming scaled objective values}
 \item{n_fracs: }{number of units with fractional LP solutions}
@@ -46,7 +45,6 @@ with rows corresponding to the strata and columns to the units}
 }
 }
 }
-}
 \description{
 Refine an initial stratification by splitting each stratum or specified subset of strata
 into two refined strata. If no initial
@@ -55,7 +53,7 @@ using \code{\link{prop_strat}()}.
 }
 \details{
 The \code{options} argument can contain any of the following elements:
-\itemize{
+\describe{
 \item{solver: }{character specifying the optimization software to use.
 Options are "Rglpk" or "gurobi". The default is "Rglpk" unless a gurobi installation is detected,
 in which case it is set to "gurobi". It is recommended to use "gurobi" if available.}

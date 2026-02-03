@@ -28,7 +28,7 @@
 #' and the proportion of randomized values more imbalanced than the observational value (the P-value).
 #'
 #' The `options` list argument can contain any of the following elements:
-#' \itemize{
+#' \describe{
 #'     \item{nrand: }{how many times to randomize the treatment assignment when forming the null distribution.
 #'     Default is 10000}
 #'     \item{criterion: }{which optimization criterion to use when calculating the objective value.
@@ -41,7 +41,6 @@
 #'     Default is `TRUE` if a base stratification is provided}
 #' }
 #' @return List with three components:
-#' \itemize{
 #'    \item{pvals: }{list containing `base` and `refined` elements, each of which is a list with randomization P-values
 #'    for the objective value (`NULL` for the base stratification),
 #'    the maximum standardized mean difference (SMD),
@@ -58,7 +57,6 @@
 #'    the maximum standardized mean difference (SMD),
 #'    and for the average SMD across strata for each covariate
 #'    (this element is a matrix with `nrand` rows and a column for each covariate)}
-#' }
 #' @export
 #' @import stats
 #'
@@ -202,7 +200,7 @@ rand_pvals <- function(object = NULL, z = NULL, X = NULL,
 #'
 #'
 #' @details The `options` list argument can contain any of the following elements:
-#' \itemize{
+#' \describe{
 #'     \item{nrand: }{how many times to randomize the treatment assignment when forming the null distribution.
 #'     Default is 10000}
 #'     \item{criterion: }{which optimization criterion to use when calculating the objective value.
@@ -213,7 +211,7 @@ rand_pvals <- function(object = NULL, z = NULL, X = NULL,
 #' Only used if criterion is set to "combo". Default is 5}
 #'     \item{incl_base: }{whether to include columns for the initial stratification in the table.
 #'     Default is `TRUE` if a base stratification is provided}
-#'     \item{rand_pvals: if already calculated, the returned list of information from \code{\link{rand_pvals}()}.
+#'     \item{rand_pvals: }{if already calculated, the returned list of information from \code{\link{rand_pvals}()}.
 #' If `NULL`, this will be calculated}
 #' }
 #' @return Matrix with 4 or 8 columns, depending whether one or both of base and

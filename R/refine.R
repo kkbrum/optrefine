@@ -20,7 +20,7 @@
 #'
 #' @details
 #' The `options` argument can contain any of the following elements:
-#' \itemize{
+#' \describe{
 #'     \item{solver: }{character specifying the optimization software to use.
 #'     Options are "Rglpk" or "gurobi". The default is "Rglpk" unless a gurobi installation is detected,
 #'     in which case it is set to "gurobi". It is recommended to use "gurobi" if available.}
@@ -47,13 +47,12 @@
 #'
 #'
 #' @return Object of class "strat", which is a list object with the following components:
-#'  \itemize{
 #'     \item{z: }{treatment vector}
 #'     \item{X: }{covariate matrix}
 #'     \item{base_strata: }{initial stratification}
 #'     \item{refined_strata: }{refined_stratification}
 #'     \item{details: }{various details about the optimization that can be ignored in practice, but may be interesting:
-#'     \itemize{
+#'     \describe{
 #'         \item{valueIP, valueLP: }{integer (determined via randomized rounding, unless `integer` option set to true)
 #'         and linear programming scaled objective values}
 #'         \item{n_fracs: }{number of units with fractional LP solutions}
@@ -67,7 +66,6 @@
 #'         \item{X_std: }{standardized version of `X`}
 #'         }
 #'     }
-#' }
 #'
 #'
 #' @export

@@ -57,7 +57,6 @@ from \code{nc_list} and \code{nt_list} that violate this are skipped}
 }
 \value{
 A list containing the following elements:
-\itemize{
 \item{valuesIP, valuesLP: }{matrices containing integer and linear programming
 scaled objective values for each sample size tried, with rows corresponding to the
 elements of \code{nc_list} and columns corresponding to the elements of \code{nt_list}}
@@ -71,7 +70,6 @@ stratum that were selected with randomness for the best split}
 with rows corresponding to the strata and columns to the units}
 \item{selection: }{vector of selected strata for each unit
 in the initial stratum to be split for the best split}
-}
 }
 \description{
 Runs \code{\link{split_stratum}()} many times and selects the best result.

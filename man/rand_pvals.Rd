@@ -35,7 +35,6 @@ only used if \code{object} is not supplied}
 }
 \value{
 List with three components:
-\itemize{
 \item{pvals: }{list containing \code{base} and \code{refined} elements, each of which is a list with randomization P-values
 for the objective value (\code{NULL} for the base stratification),
 the maximum standardized mean difference (SMD),
@@ -52,7 +51,6 @@ the objective value (\code{NULL} for the base stratification),
 the maximum standardized mean difference (SMD),
 and for the average SMD across strata for each covariate
 (this element is a matrix with \code{nrand} rows and a column for each covariate)}
-}
 }
 \description{
 Randomize the treatment assignment within strata to generate the randomization distribution of covariate balance
@@ -80,7 +78,7 @@ the median and minimum of the randomized values,
 and the proportion of randomized values more imbalanced than the observational value (the P-value).
 
 The \code{options} list argument can contain any of the following elements:
-\itemize{
+\describe{
 \item{nrand: }{how many times to randomize the treatment assignment when forming the null distribution.
 Default is 10000}
 \item{criterion: }{which optimization criterion to use when calculating the objective value.

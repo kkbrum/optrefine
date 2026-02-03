@@ -20,7 +20,6 @@
 #' @param threads how many threads to use in the optimization if using "gurobi" as the solver. Default will use all available threads
 #'
 #' @return A list containing the following elements:
-#' \itemize{
 #'     \item{valueIP, valueLP: }{integer and linear programming scaled objective values}
 #'     \item{n_smds: }{number of standardized mean differences contributing to the objective values
 #' (multiply the scaled objective values by this number to get the true objective values)}
@@ -29,7 +28,6 @@
 #'     that were selected with randomness}
 #'     \item{pr: }{linear programming solution, with rows corresponding to the strata and columns to the units}
 #'     \item{selection: }{vector of selected strata for each unit in the initial stratum to be split}
-#' }
 #'
 #' @examples
 #' # Generate a small data set
