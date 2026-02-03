@@ -1,11 +1,10 @@
-## Minor release
-This is a minor release. In this version I have:
-* Added a couple more possible elements to the `options` argument to the `refine` function. These are `minsplit` for the minimum number of treated or control units to allow in a split stratum and `threads` for the number of threads to use in the optimization.
+## Patch
+This is a patch to update my email address and paper details. Nothing else has changed.
 
 I am unable to fix the NOTE about 'gurobi' not being available for checking since it is a commercial software and the R package must be downloaded from their website. However, it is only suggested and the package works without it. Installation instructions for the R package 'gurobi' are in the description of the package.
 
 ## Test environments
-- local macOS install, R 4.2.2
+- local macOS install, R 4.5.2
 - macOS builder
 - win-builder (devel and release)
 - github actions:
@@ -21,7 +20,7 @@ There were no ERRORs or WARNINGs.
 There were 2 NOTEs:
 
  * checking CRAN incoming feasibility ... NOTE
-Maintainer: 'Katherine Brumberg <kbrum@wharton.upenn.edu>'
+Maintainer: 'Katherine Brumberg <kbrum@umich.edu>'
 
 Suggests or Enhances not in mainstream repositories:
   gurobi

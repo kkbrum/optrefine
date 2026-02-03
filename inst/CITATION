@@ -1,0 +1,40 @@
+citHeader("To cite optrefine in publications use:")
+
+citEntry(entry = "Manual",
+         title = "optrefine: Optimally Refine Strata",
+         author = personList(
+           person("Katherine", "Brumberg", 
+                  email = "kbrum@umich.edu",
+                  role = c("aut", "cre"),
+                  comment = c(ORCID = "0000-0002-5193-6250"))
+         ),
+         year = "2024",
+         note = paste("R package version", packageVersion("optrefine")),
+         url = "https://github.com/kkbrum/optrefine",
+         textVersion = paste("Brumberg K (2024).",
+                            "optrefine: Optimally Refine Strata.",
+                            "R package version", packageVersion("optrefine"),
+                            "https://github.com/kkbrum/optrefine"))
+
+citHeader("To cite the accompanying paper, please use:")
+
+citEntry(entry = "Article",
+         title = "Optimal refinement of strata to balance covariates",
+         author = personList(
+           person("Katherine", "Brumberg", role = "aut",
+                  comment = c(ORCID = "0000-0002-5193-6250")),
+           person("Dylan S", "Small", role = "aut"),
+           person("Paul R", "Rosenbaum", role = "aut")
+         ),
+         journal = "Biometrics",
+         year = "2024",
+         volume = "80",
+         number = "3",
+         pages = "ujae061",
+         doi = "10.1093/biomtc/ujae061",
+         url = "https://academic.oup.com/biometrics/article/80/3/ujae061/7712595",
+         textVersion = paste("Brumberg K, Small DS, Rosenbaum PR (2024).",
+                            "Optimal refinement of strata to balance covariates.",
+                            "Biometrics, 80(3), ujae061.",
+                            "doi:10.1093/biomtc/ujae061"))
+

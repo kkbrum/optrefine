@@ -1,17 +1,17 @@
 Package: optrefine
 Title: Optimally Refine Strata
-Version: 1.0.1
+Version: 1.1.1
 Authors@R: 
-    person("Katherine", "Brumberg", , "kbrum@wharton.upenn.edu", role = c("aut", "cre"),
+    person("Katherine", "Brumberg", , "kbrum@umich.edu", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-5193-6250"))
-Description: Splits initial strata into refined strata that optimize covariate balance. For more information, please email the author for a copy of the accompanying manuscript. To solve the linear program, the 'Gurobi' commercial optimization software is recommended, but not required. The 'gurobi' R package can be installed following the instructions at <https://www.gurobi.com/documentation/9.1/refman/ins_the_r_package.html>.
-URL: https://github.com/kkbrum/optrefine, https://kkbrum.github.io/optrefine/, https://www.gurobi.com/documentation/9.1/refman/ins_the_r_package.html
+Description: Splits initial strata into refined strata that optimize covariate balance. For more information, please see Brumberg, Small, and Rosenbaum (2024) <doi:10.1093/biomtc/ujae061>. To solve the linear program, the 'Gurobi' commercial optimization software is recommended, but not required. The 'gurobi' R package can be installed following the instructions at <https://docs.gurobi.com/projects/optimizer/en/current/reference/r/setup.html> after claiming your free academic license at <https://www.gurobi.com/academia/academic-program-and-licenses/>.
+URL: https://github.com/kkbrum/optrefine, https://kkbrum.github.io/optrefine/
 BugReports: https://github.com/kkbrum/optrefine/issues
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Depends: 
     R (>= 2.10),
     MASS,

@@ -93,7 +93,7 @@ test_that("IP combo obj value calculated correctly", {
   n_st_used <- sum(table(ref$refined_strata) != 0)
   smds <- calc_smds(z = ref$z, X = ref$X, refined_strata = ref$refined_strata, abs = TRUE)
   obj <- (sum(smds$refined, na.rm = TRUE) +
-            wMax * sum(sapply(1:4, function(x) {max(smds$refined[(2*x-1):(2*x), ], na.rm = TRUE)}))) /
+            wMax * sum(sapply(1:nstrata, function(x) {max(smds$refined[(2*x-1):(2*x), ], na.rm = TRUE)}))) /
     ((ncov+1)*n_st_used + nstrata * wMax)
   expect_equal(ref$details$valueIP, obj)
 })
